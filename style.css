@@ -1,31 +1,15 @@
 body {
-    font-family: Arial;
-    background: #f2f2f2;
+    background-color: #f4f6f9;
 }
 
-.container {
-    width: 400px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    margin-top: 50px;
-    border-radius: 10px;
+.card {
+    border-radius: 12px;
 }
 
-input, textarea, button {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
+h2 {
+    font-weight: bold;
 }
 
 button {
-    background: #007BFF;
-    color: white;
-    border: none;
-}
-
-.complaint-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
+    border-radius: 8px;
 }

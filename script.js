@@ -1,25 +1,27 @@
-const form = document.getElementById("complaintForm");
+// script.js (Student Side)
+function submitComplaint() {
+    let name = document.getElementById("name").value;
+    let dept = document.getElementById("department").value;
+    let complaint = document.getElementById("complaint").value;
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    if (name === "" || dept === "" || complaint === "") {
+        alert("All fields are required!");
+        return;
+    }
 
-    const name = document.getElementById("name").value;
-    const usn = document.getElementById("usn").value;
-    const complaint = document.getElementById("complaint").value;
+    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
-    const newComplaint = {
+    let newComplaint = {
         id: Date.now(),
-        name,
-        usn,
-        complaint,
+        name: name,
+        department: dept,
+        complaint: complaint,
         status: "Pending"
     };
 
-    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     complaints.push(newComplaint);
-
     localStorage.setItem("complaints", JSON.stringify(complaints));
 
-    alert("Complaint Submitted Successfully!");
-    form.reset();
-});
+    alert("Complaint submitted successfully!");
+    document.querySelector("form").reset();
+}
