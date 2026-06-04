@@ -1,27 +1,44 @@
-// script.js (Student Side)
 function submitComplaint() {
-    let name = document.getElementById("name").value;
-    let dept = document.getElementById("department").value;
-    let complaint = document.getElementById("complaint").value;
 
-    if (name === "" || dept === "" || complaint === "") {
-        alert("All fields are required!");
-        return;
-    }
+let name = document.getElementById("name").value;
+let department = document.getElementById("department").value;
+let category = document.getElementById("category").value;
+let priority = document.getElementById("priority").value;
+let complaint = document.getElementById("complaint").value;
 
-    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+if (
+    name === "" ||
+    department === "" ||
+    category === "" ||
+    priority === "" ||
+    complaint === ""
+) {
+    alert("Please fill all fields");
+    return;
+}
 
-    let newComplaint = {
-        id: Date.now(),
-        name: name,
-        department: dept,
-        complaint: complaint,
-        status: "Pending"
-    };
+let complaints =
+    JSON.parse(localStorage.getItem("complaints")) || [];
 
-    complaints.push(newComplaint);
-    localStorage.setItem("complaints", JSON.stringify(complaints));
+let newComplaint = {
+    id: "CMP" + Date.now(),
+    name: name,
+    department: department,
+    category: category,
+    priority: priority,
+    complaint: complaint,
+    status: "Pending"
+};
 
-    alert("Complaint submitted successfully!");
-    document.querySelector("form").reset();
+complaints.push(newComplaint);
+
+localStorage.setItem(
+    "complaints",
+    JSON.stringify(complaints)
+);
+
+alert("Complaint Submitted Successfully!");
+
+document.querySelector("form").reset();
+
 }
