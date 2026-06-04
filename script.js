@@ -1,44 +1,40 @@
-function submitComplaint() {
+function submitComplaint(event) {
+    event.preventDefault();
 
-let name = document.getElementById("name").value;
-let department = document.getElementById("department").value;
-let category = document.getElementById("category").value;
-let priority = document.getElementById("priority").value;
-let complaint = document.getElementById("complaint").value;
+    const name = document.getElementById("name").value.trim();
+    const department = document.getElementById("department").value.trim();
+    const category = document.getElementById("category").value.trim();
+    const priority = document.getElementById("priority").value.trim();
+    const complaint = document.getElementById("complaint").value.trim();
 
-if (
-    name === "" ||
-    department === "" ||
-    category === "" ||
-    priority === "" ||
-    complaint === ""
-) {
-    alert("Please fill all fields");
-    return;
-}
+    // validation
+    if (!name || !department || !category || !priority || !complaint) {
+        alert("Please fill all fields");
+        return;
+    }
 
-let complaints =
-    JSON.parse(localStorage.getItem("complaints")) || [];
+    const data = {
+        name,
+        department,
+        category,
+        priority,
+        complaint
+    };
 
-let newComplaint = {
-    id: "CMP" + Date.now(),
-    name: name,
-    department: department,
-    category: category,
-    priority: priority,
-    complaint: complaint,
-    status: "Pending"
-};
-
-complaints.push(newComplaint);
-
-localStorage.setItem(
-    "complaints",
-    JSON.stringify(complaints)
-);
-
-alert("Complaint Submitted Successfully!");
-
-document.querySelector("form").reset();
-
+    fetch("http://localhost:5000/api/complaints", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+        alert(result.message);
+        document.querySelector("form").reset();
+    })
+    .catch(error => {
+        console.log("ERROR:", error);
+        alert("Error submitting complaint");
+    });
 }
