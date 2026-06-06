@@ -1,40 +1,41 @@
+window.onload = function () {
+    const emailField = document.getElementById("studentEmail");
+
+    if (emailField) {
+        emailField.value = localStorage.getItem("studentEmail") || "";
+    }
+};
 function submitComplaint(event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
+    const email = localStorage.getItem("studentEmail");
     const department = document.getElementById("department").value.trim();
     const category = document.getElementById("category").value.trim();
-    const priority = document.getElementById("priority").value.trim();
     const complaint = document.getElementById("complaint").value.trim();
 
-    // validation
-    if (!name || !department || !category || !priority || !complaint) {
+    if (!email || !department || !category || !complaint) {
         alert("Please fill all fields");
         return;
     }
 
-    const data = {
-        name,
+    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+
+    const newComplaint = {
+        id: Date.now(),
+        email: localStorage.getItem("studentEmail"),
         department,
         category,
-        priority,
-        complaint
+        complaint,
+        status: "Pending"
     };
 
-    fetch("http://localhost:5000/api/complaints", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
-        alert(result.message);
-        document.querySelector("form").reset();
-    })
-    .catch(error => {
-        console.log("ERROR:", error);
-        alert("Error submitting complaint");
-    });
+    complaints.push(newComplaint);
+
+    localStorage.setItem("complaints", JSON.stringify(complaints));
+
+    alert("Complaint submitted successfully!");
+
+    document.getElementById("department").value = "";
+    document.getElementById("category").value = "";
+    document.getElementById("complaint").value = "";
 }

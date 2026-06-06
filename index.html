@@ -27,9 +27,12 @@
 
         <form onsubmit="submitComplaint(event)">
             <div class="mb-3">
-                <label class="form-label">Student Name</label>
-                <input type="text" id="name" class="form-control" placeholder="Enter your name">
-            </div>
+    <label class="form-label">Student Email</label>
+    <input type="email"
+           id="studentEmail"
+           class="form-control"
+           readonly>
+</div>
 
             <div class="mb-3">
                 <label class="form-label">Department</label>
@@ -44,16 +47,6 @@
         <option value="Library">Library</option>
         <option value="Transport">Transport</option>
         <option value="Other">Other</option>
-    </select>
-</div>
-
-<div class="mb-3">
-    <label class="form-label">Priority</label>
-    <select id="priority" class="form-control">
-        <option value="">Select Priority</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
     </select>
 </div>
 
