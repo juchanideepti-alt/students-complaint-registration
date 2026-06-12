@@ -7,10 +7,9 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
     <div class="container-fluid">
-        <span class="navbar-brand">Complaint Portal</span>
-
+        <a class="navbar-brand" href="#">Complaint Portal</a>
         <div>
             <a href="about.html" class="btn btn-outline-light me-2">About</a>
             <a href="contact.html" class="btn btn-outline-light me-2">Contact</a>
@@ -21,8 +20,8 @@
 </nav>
 
 <!-- Form Section -->
-<div class="container mt-5">
-    <div class="card shadow p-4">
+<div class="container mt-5 mb-5">
+    <div class="card p-4 mx-auto" style="max-width: 600px;">
         <h2 class="text-center mb-4">Submit Complaint</h2>
 
         <form onsubmit="submitComplaint(event)">
@@ -55,14 +54,14 @@
                 <textarea id="complaint" class="form-control" rows="4" placeholder="Enter complaint"></textarea>
             </div>
         
-            <button type="submit" class="btn btn-primary w-100">Submit</button>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Submit</button>
         </form>
     </div>
 </div>
 
 <script src="script.js"></script>
-<footer class="bg-dark text-white text-center p-3 mt-5">
-    <p class="mb-0">
+<footer class="text-center p-4 mt-auto">
+    <p class="mb-0 text-secondary">
         Student Complaint Registration System © 2026
     </p>
 </footer>

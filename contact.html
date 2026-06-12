@@ -4,21 +4,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
 </head>
-<body><nav class="navbar navbar-dark bg-dark">
+<body><nav class="navbar navbar-expand-lg navbar-dark px-4">
     <div class="container-fluid">
-        <span class="navbar-brand">Contact Us</span>
+        <a class="navbar-brand" href="#">Contact Us</a>
         <a href="index.html" class="btn btn-outline-light">Home</a>
     </div>
-</nav><div class="container mt-5"><div class="card shadow p-4">
+</nav><div class="container mt-5 mb-5"><div class="card p-5 mx-auto" style="max-width: 600px;">
 
-    <h2>Contact Information</h2>
+    <h2 class="mb-4 text-center">Contact Information</h2>
 
-    <p><strong>Email:</strong> support@college.edu</p>
+    <div class="d-flex flex-column gap-3">
+        <div class="p-3 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+            <p class="mb-0 text-secondary text-uppercase" style="font-size: 0.85rem; letter-spacing: 0.05em;">Email</p>
+            <p class="mb-0 fs-5 fw-medium text-gradient">support@college.edu</p>
+        </div>
 
-    <p><strong>Phone:</strong> +91 9876543210</p>
+        <div class="p-3 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+            <p class="mb-0 text-secondary text-uppercase" style="font-size: 0.85rem; letter-spacing: 0.05em;">Phone</p>
+            <p class="mb-0 fs-5 fw-medium">+91 9876543210</p>
+        </div>
 
-    <p><strong>Address:</strong> College Campus, Karnataka, India</p>
+        <div class="p-3 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+            <p class="mb-0 text-secondary text-uppercase" style="font-size: 0.85rem; letter-spacing: 0.05em;">Address</p>
+            <p class="mb-0 fs-5 fw-medium">College Campus, Karnataka, India</p>
+        </div>
+    </div>
 
 </div>
 

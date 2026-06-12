@@ -4,34 +4,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
 </head>
-<body><nav class="navbar navbar-dark bg-dark">
+<body><nav class="navbar navbar-expand-lg navbar-dark px-4">
     <div class="container-fluid">
-        <span class="navbar-brand">Admin Dashboard</span>
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
         <a href="index.html" class="btn btn-outline-light">Logout</a>
     </div>
-</nav><div class="container mt-4"><div class="row mb-4">
+</nav><div class="container mt-5"><div class="row mb-4">
     <div class="col-md-4">
-        <div class="card p-3 text-center">
-            <h5>Total Complaints</h5>
-            <h2 id="totalComplaints">0</h2>
+        <div class="card p-4 text-center">
+            <h5 class="text-secondary mb-3 text-uppercase">Total Complaints</h5>
+            <h2 id="totalComplaints" class="text-gradient display-5 fw-bold mb-0">0</h2>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card p-3 text-center">
-            <h5>Pending</h5>
-            <h2 id="pendingComplaints">0</h2>
+        <div class="card p-4 text-center">
+            <h5 class="text-secondary mb-3 text-uppercase">Pending</h5>
+            <h2 id="pendingComplaints" class="text-gradient display-5 fw-bold mb-0">0</h2>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card p-3 text-center">
-            <h5>Resolved</h5>
-            <h2 id="resolvedComplaints">0</h2>
+        <div class="card p-4 text-center">
+            <h5 class="text-secondary mb-3 text-uppercase">Resolved</h5>
+            <h2 id="resolvedComplaints" class="text-gradient display-5 fw-bold mb-0">0</h2>
         </div>
     </div>
 </div>
+
+<div class="card p-4">
 
 <input
     type="text"
@@ -40,23 +43,25 @@
     placeholder="Search complaints..."
     onkeyup="searchComplaints()">
 
-<table class="table table-bordered table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Category</th>
-            <th>Priority</th>
-            <th>Complaint</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody id="complaintList">
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Complaint</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="complaintList">
+        </tbody>
+    </table>
+</div>
+</div>
 
 </div><script src="admin.js"></script></body>
 </html>
