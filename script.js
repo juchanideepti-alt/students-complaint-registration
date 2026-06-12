@@ -5,7 +5,8 @@ window.onload = function () {
         emailField.value = localStorage.getItem("studentEmail") || "";
     }
 };
-function submitComplaint(event) {
+
+async function submitComplaint(event) {
     event.preventDefault();
 
     const email = localStorage.getItem("studentEmail");
@@ -18,24 +19,34 @@ function submitComplaint(event) {
         return;
     }
 
-    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
-
     const newComplaint = {
-        id: Date.now(),
-        email: localStorage.getItem("studentEmail"),
+        name: email.split('@')[0], // Derive a name from email for the admin panel
+        email,
         department,
         category,
-        complaint,
-        status: "Pending"
+        priority: "Normal", // Default priority
+        complaint
     };
 
-    complaints.push(newComplaint);
+    try {
+        const response = await fetch("http://localhost:5000/api/complaints", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newComplaint)
+        });
 
-    localStorage.setItem("complaints", JSON.stringify(complaints));
-
-    alert("Complaint submitted successfully!");
-
-    document.getElementById("department").value = "";
-    document.getElementById("category").value = "";
-    document.getElementById("complaint").value = "";
+        if (response.ok) {
+            alert("Complaint submitted successfully!");
+            document.getElementById("department").value = "";
+            document.getElementById("category").value = "";
+            document.getElementById("complaint").value = "";
+        } else {
+            alert("Error submitting complaint. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to connect to the server. Is the backend running?");
+    }
 }
