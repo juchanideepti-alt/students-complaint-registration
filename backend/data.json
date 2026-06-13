@@ -7,7 +7,7 @@
     "priority": "Normal",
     "complaint": "we need proper laundry",
     "id": "1781274200158",
-    "status": "Resolved"
+    "status": "Pending"
   },
   {
     "name": "student",
@@ -17,6 +17,17 @@
     "priority": "Normal",
     "complaint": "bus is coming late",
     "id": "1781274559391",
+    "status": "Resolved"
+  },
+  {
+    "name": "ankitha",
+    "email": "ankitha@email.com",
+    "department": "science",
+    "category": "Transport",
+    "priority": "Normal",
+    "complaint": "nnnknbhgfghfgjhkjlkl;ljjhdgfsghjkhlkjjghf",
+    "image": null,
+    "id": "1781327363895",
     "status": "Pending"
   }
 ]
