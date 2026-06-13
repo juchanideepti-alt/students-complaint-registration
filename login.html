@@ -30,6 +30,7 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function loginAdmin() {
     let username = document.getElementById("username").value;
@@ -39,7 +40,13 @@ function loginAdmin() {
         window.location.href = "admin.html";
     }
     else {
-        alert("Invalid Username or Password");
+        Swal.fire({
+            icon: 'error',
+            title: 'Access Denied',
+            text: 'Invalid Username or Password',
+            background: 'var(--card-bg)',
+            color: 'var(--text-primary)'
+        });
     }
 }
 </script>

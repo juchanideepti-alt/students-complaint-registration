@@ -1,0 +1,22 @@
+[
+  {
+    "name": "student",
+    "email": "student@college.edu",
+    "department": "Computer Science",
+    "category": "Hostel",
+    "priority": "Normal",
+    "complaint": "we need proper laundry",
+    "id": "1781274200158",
+    "status": "Resolved"
+  },
+  {
+    "name": "student",
+    "email": "student@college.edu",
+    "department": "ise",
+    "category": "Transport",
+    "priority": "Normal",
+    "complaint": "bus is coming late",
+    "id": "1781274559391",
+    "status": "Pending"
+  }
+]

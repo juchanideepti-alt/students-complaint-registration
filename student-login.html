@@ -37,6 +37,7 @@
     </form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function studentLogin(){
 
@@ -44,7 +45,13 @@ function studentLogin(){
     let password = document.getElementById("password").value;
 
     if(email === "" || password === ""){
-        alert("Please fill all fields");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please fill all fields!',
+            background: 'var(--card-bg)',
+            color: 'var(--text-primary)'
+        });
         return;
     }
 
